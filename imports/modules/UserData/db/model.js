@@ -3,6 +3,14 @@ import Model from '../../Model'
 export default class UserDataModel extends Model {
   name = String
 
+  username = String
+
+  'user.optional' = true
+
+  password = String
+
+  'password.optional' = true
+
   age = Number || String
 
   birthday = Date || String
@@ -21,9 +29,7 @@ export default class UserDataModel extends Model {
     max: 500,
   }
 
-
   skills = [String]
-
 
   dateCreated = {
     type: String || Date,

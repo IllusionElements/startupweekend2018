@@ -1,0 +1,24 @@
+type Careers @mongo(name: careers) {
+  _id: String
+  title: String
+  keywords: [Keywords] @link(to: "keywords")
+}
+
+type Keywords @mongo(name: keywords){
+  _id: String!
+  name: String
+  relatedCareers: [Careers] @link(field: "careerIds")
+}
+
+type User {
+  _id: String
+  name: String
+  age: Number
+  birthday: Date || String
+  major: String
+  career: String
+  workExperience: [String]
+  projectDescription: [String]
+  skills: [String]
+}
+

@@ -1,0 +1,5 @@
+type Careers @mongo(name: careers) {
+  _id: String
+  title: String
+  keywords: [String]
+}
