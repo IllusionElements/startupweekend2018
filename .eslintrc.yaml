@@ -1,6 +1,6 @@
 ---
   root: true
-
+  parser: babel-eslint
   env:
     es6: true
     browser: true
@@ -19,7 +19,10 @@
   extends:
     - airbnb/base
     - plugin:meteor/recommended
-
+  
+  rules:
+    semi: 0
+    
   globals:
     # Collections
     MyCollection: true
