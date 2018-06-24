@@ -12,7 +12,6 @@
     "events": "^3.0.0",
     "meteor-node-stubs": "^0.4.1",
     "mobx": "^5.0.3",
-    "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "simpl-schema": "^1.5.0"
   },
@@ -27,6 +26,8 @@
     "@babel/plugin-transform-flow-strip-types": "^7.0.0-beta.51",
     "babel": "^6.23.0",
     "babel-eslint": "^8.2.4",
+    "chai": "^4.1.2",
+    "classnames": "^2.2.6",
     "eslint": "^4.19.1",
     "eslint-config-airbnb": "^17.0.0",
     "eslint-import-resolver-meteor": "^0.4.0",
@@ -34,7 +35,10 @@
     "eslint-plugin-import": "^2.12.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-meteor": "^5.0.0",
+    "eslint-plugin-mocha": "^5.0.0",
     "eslint-plugin-react": "^7.9.1",
-    "flow-bin": "^0.75.0"
+    "flow-bin": "^0.75.0",
+    "react": "^16.4.1",
+    "react-ace": "^6.1.1"
   }
 }
