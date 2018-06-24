@@ -1,8 +1,8 @@
 /* eslint-disable no-param-reassign */
 import React from 'react'
+import { d } from '../utils'
 
 // types
-
 
 const getDisplayName = WrappedComponent => (
   WrappedComponent.displayName || WrappedComponent.name || 'Component'
@@ -13,9 +13,11 @@ export const setDisplayName = displayName => (Component) => {
   return Component
 }
 
-export const enumerable = (bool = true) => (target, key, descriptors) => {
-  descriptors.enumerable = bool
-}
+export const enumerable = (bool = true) => (target, key, descriptors) => d(target, key, {
+  ...descriptors,
+  enumerable: bool,
+})
+
 export const assignStatic = HoC => (WrappedComponent) => {
   const def = ['prototype', 'name', 'constructor']
   const WrappedHoC = HoC(WrappedComponent)

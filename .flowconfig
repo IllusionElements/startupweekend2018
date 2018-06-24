@@ -1,0 +1,20 @@
+[ignore]
+ .*/build/.*
+  <PROJECT_ROOT>/.*meteor/local
+  *\.json$
+
+[include]
+
+[libs]
+
+[lints]
+module.name_mapper='^\/\(.*\)$' => '<PROJECT_ROOT>/\1'
+module.name_mapper='^meteor\/\(.*\):\(.*\)$' -> '<PROJECT_ROOT>/.meteor/local/build/programs/server/packages/\1_\2'
+module.name_mapper='^meteor\/\(.*\)$' -> '<PROJECT_ROOT>/.meteor/local/build/programs/server/packages/\1'
+
+[options]
+module.name_mapper='^\/\(.*\)$' => '<PROJECT_ROOT>/\1'
+module.name_mapper='^meteor\/\(.*\):\(.*\)$' -> '<PROJECT_ROOT>/.meteor/local/build/programs/server/packages/\1_\2'
+module.name_mapper='^meteor\/\(.*\)$' -> '<PROJECT_ROOT>/.meteor/local/build/programs/server/packages/\1'
+
+[strict]
