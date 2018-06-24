@@ -1,6 +1,7 @@
-import Careers from '..'
+import Keywords from '..'
 
-export default Careers.createQuery('career query', {
+export default Keywords.createQuery('keyword query', {
+  _id: 1,
   name: 1,
   relatedCareers: 1,
 })

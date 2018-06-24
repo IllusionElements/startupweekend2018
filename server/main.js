@@ -1,5 +1,7 @@
-import { Meteor } from 'meteor/meteor';
+import { Meteor } from 'meteor/meteor'
+import '/imports/db/main'
+import '/imports/startup/server'
 
 Meteor.startup(() => {
-  // code to run on server at startup
-});
+  process.env.MONGO_URL = Meteor.settings.private.mongo.url.MONGO_URL
+})

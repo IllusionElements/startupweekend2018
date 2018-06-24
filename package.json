@@ -2,7 +2,7 @@
   "name": "career-me",
   "private": true,
   "scripts": {
-    "start": "meteor run",
+    "start": "meteor --settings settings-development.json --MONGO_URL=\"mongodb://careerme:pepsicola20@ds249818.mlab.com:49818/careerme\" --port $IP:$PORT",
     "test": "meteor test --once --driver-package meteortesting:mocha",
     "test-app": "TEST_WATCH=1 meteor test --full-app --driver-package meteortesting:mocha",
     "visualize": "meteor --production --extra-packages bundle-visualizer"

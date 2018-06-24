@@ -23,6 +23,7 @@ class SchemaBuilder {
 
   static setSchema(collection) {
     const { schema, model } = Schemas.get(this)
+    console.log(collection, schema)
     const schemaSet = collection.attachSchema(schema)
     this.schemas.set(model, schema)
 

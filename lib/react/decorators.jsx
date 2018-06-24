@@ -34,17 +34,17 @@ export const connect = ({
   Store = {},
 }) => WrappedComponent => (
   class WithStore extends React.PureComponent {
-      static displayName = `WithStore${displayName || getDisplayName(WrappedComponent)}`
+    static displayName = `WithStore${displayName || getDisplayName(WrappedComponent)}`
 
-      state = state
+    state = state
 
-      render() {
-        const emitter = Store.emitter || null
-        return (
-          <Store.Provider value={this.state}>
-            <WrappedComponent {...this.props} store={emitter}/>
-          </Store.Provider>
-        )
-      }
+    render() {
+      const emitter = Store.emitter || null
+      return (
+        <Store.Provider value={this.state}>
+          <WrappedComponent {...this.props} store={emitter} />
+        </Store.Provider>
+      )
+    }
   }
 )

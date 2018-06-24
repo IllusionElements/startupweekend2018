@@ -1,4 +1,4 @@
-import Meteor from 'meteor/meteor'
+import { Meteor } from 'meteor/meteor'
 import Careers from '../../fixtures/jobNameFixtures'
 import Keywords from '../../fixtures/keywordFixtures'
 import { Career, Keyword } from '../../db'

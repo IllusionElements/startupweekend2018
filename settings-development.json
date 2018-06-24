@@ -1,0 +1,9 @@
+{
+  "private": {
+    "mongo": {
+      "url": {
+        "MONGO_URL": "mongodb://careerme:pepsicola20@ds249818.mlab.com:49818/careerme"
+      }
+    }
+  }
+}

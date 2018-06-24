@@ -1,5 +1,4 @@
-import { Mongo } from 'meteor/mongo'
+import schema from './schema'
 
-const UserData = new Mongo.Collection('userdata')
-
-export default UserData
+// console.log(Meteor.user)
+// export default Meteor.user.attachSchema(schema)

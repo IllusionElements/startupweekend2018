@@ -5,7 +5,7 @@ export default class UserDataModel extends Model {
 
   username = String
 
-  'user.optional' = true
+  'username.optional' = true
 
   password = String
 
@@ -21,7 +21,7 @@ export default class UserDataModel extends Model {
 
   career = String
 
-  workExperience: String
+  workExperience = String
 
   projectDescription = {
     type: String,
@@ -33,7 +33,7 @@ export default class UserDataModel extends Model {
 
   dateCreated = {
     type: String || Date,
-    autovalue() {
+    autoValue() {
       return { $push: new Date() }
     },
   }
