@@ -10,7 +10,7 @@ const createEvent = (...names) => (...actions) => names.reduce((event, name, i) 
 export const events = {
   eventList: createEvent('JOB_ISMAPPED')('job_mapped'),
   Store: {
-    dispatch(arg, ...args) {
+    dispatch(arg: string, ...args: any) {
       return [arg, ...args]
     },
   },

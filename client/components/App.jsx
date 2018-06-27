@@ -1,33 +1,28 @@
+// @flow
 import React from 'react'
-import { render as h } from 'react-dom'
-import { withCall } from './CallProvider'
-import { withQuery } from 'meteor/cultofcoders:grapher-react'
+// import { withQuery } from 'meteor/cultofcoders:grapher-react'
+import withCall from './CallProvider'
 import Career from './form'
 
+type CareerType = {
+  name: string,
+  keywords: string[]
+}
 
-const getName = x => x.displayName || x.name || 'Component'
-const wrapDisplayName = wrapper => (Component) => (
-  class extends React.Component {
-    static displayName = `${wrapper}(${getName(Component)})`
-    render() {
-      return (
-        <Component {...this.props} />
-      )
-    }
-  }
-)
-
+type PropsType = {
+  careers: CareerType
+}
 
 @withCall('getQuery', { name: 'career' })
-class App extends React.Component {
+class App extends React.Component<PropsType, {}> {
   static displayName = 'Career'
+
   render() {
+    const { careers } : { careers: CareerType } = this.props
     return (
-      <Career career={this.props.careers} />
+      <Career career={careers} />
     )
   }
 }
-
-const root = document.getElementById('root')
 
 export default App

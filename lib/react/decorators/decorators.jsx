@@ -1,10 +1,9 @@
 /* eslint-disable no-param-reassign */
 import React from 'react'
-import { d } from '../utils'
-
+import { d } from '../../utils'
 // types
 
-const getDisplayName = WrappedComponent => (
+export const getDisplayName = WrappedComponent => (
   WrappedComponent.displayName || WrappedComponent.name || 'Component'
 )
 

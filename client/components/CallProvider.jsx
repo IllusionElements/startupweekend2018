@@ -1,93 +1,49 @@
-/* eslint-disable */
 import React from 'react'
+import { getDisplayName } from '/lib/react/decorators'
 
 const promise = (...args) => new Promise((resolve, reject) => (
-  Meteor.call(...args, (err, res) =>{
-    if(err) reject(err)
+  Meteor.call(...args, (err, res) => {
+    if (err) reject(err)
     resolve(res)
   })))
 
-const getDisplayName = (Component) => Component.displayName || Component.name || 'Component'
-
-export const withCall = (param, ...args) => (Component)=> (
+export default (param, ...args) => Component => (
   class extends React.Component {
     static displayName = `withMeteorCall(${getDisplayName(Component)})`
 
     state = {
       loaded: false,
-      careers: null
+      careers: null,
     }
 
     componentDidMount() {
       promise(param, ...args)
-        .then(r => {
-          this.setState({ loaded: true, careers: r})
-          console.log(r)
+        .then((r) => {
+          this.setState({ loaded: true, careers: r })
         })
     }
 
     render() {
-      if(!this.state.loaded) {
+      const { loaded, careers } = this.state
+
+      if (!loaded) {
         return (
-          <h1> ...Loading </h1>
+          <h1>
+            ...Loading
+          </h1>
         )
       }
-      if(this.state.loaded && !this.state.careers) {
-        console.log(this.state.careers)
+      if (loaded && !careers) {
         return (
-          <h1>...oops error</h1>
+          <h1>
+            ...oops error
+          </h1>
         )
       }
 
       return (
-        <Component careers={this.state.careers} {...this.props} />
+        <Component careers={careers} {...this.props} />
       )
     }
-
   }
 )
-
-// export const Loadable = ({ isLoading, isError, Loader }) => (Component) => (
-//   class extends React.Component {
-//     static displayName = `Loadable(${getDisplayName(Component)})`
-
-//     state = {
-//       loading: true,
-//       Component: {
-//         Loaded: null,
-//       },
-//       error: false
-//     }
-//     componentDidMount() {
-//       if(Loader instanceof Promise) {
-//         Loader().then(Loaded => this.setState({
-//           Component: {
-//             Loaded,
-//           },
-//           loading: false
-//         })).catch(err => this.setState({ loading: false, error: true}))
-//       }
-//     }
-
-//     render() {
-//       if(!loading && !error) {
-//         const Loaded = this.state.Component.Loaded
-//         return (
-//           <Loaded {...this.props} />
-//             <Component {...this.props} />
-//           </Loaded>
-//         )
-//       }
-//     }
-//   }
-// )
-
-// export const importAll = async (...paths) => {
-//   const imports = await paths.map(async (path) => {
-//     const data = await import(path)
-//     return data
-//   })
-
-//   return imports
-// }
-

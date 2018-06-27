@@ -1,7 +1,5 @@
-// @flow
-import Meteor from 'meteor/meteor'
-
 const getPercentageFromLength = (a, b) => a.length / b.length
+
 const sortDescending = (a, b) => {
   const { similarityRate: aSR } = a;
   const { similarityRate: bSR } = b;
