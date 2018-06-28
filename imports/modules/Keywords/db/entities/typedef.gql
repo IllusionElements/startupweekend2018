@@ -1,0 +1,7 @@
+type Keywords @mongo(name: "keyword") {
+  _id: String
+  name: String
+  careers: [Career] @link(field: "careerIds")
+}
+
+

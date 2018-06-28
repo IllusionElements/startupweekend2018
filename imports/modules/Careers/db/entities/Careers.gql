@@ -1,0 +1,10 @@
+type Career @mongo(name: "career") {
+  _id: String
+  title: String
+  keywords: [Keywords] @link(to: "keywords")
+}
+
+type CareersQuery {
+  careersList: [Career]
+  career(_id: ID, title: String): [Career]
+}

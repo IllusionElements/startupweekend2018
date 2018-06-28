@@ -22,3 +22,7 @@ cultofcoders:mocha
 aldeed:collection2
 accounts-base
 static-html
+cultofcoders:apollo
+swydo:graphql
+cultofcoders:grapher-schema-directives
+http

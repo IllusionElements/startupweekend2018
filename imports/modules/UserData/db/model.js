@@ -1,50 +1,54 @@
 import Model from '../../Model'
 
 export default class UserDataModel extends Model {
-  name = String
-'name.optional' = true
-  username = String
+  'name' = String
+
+  'name.optional' = true
+
+  'username' = String
 
   'username.optional' = true
 
-  password = String
+  'password' = String
 
   'password.optional' = true
 
-  age = Number || String
+  'age' = Number || String
 
   'age.optional' = true
-  birthday = Date || String
 
-'birthday.optional' = true
+  'birthday' = Date || String
 
-  school = String
+  'birthday.optional' = true
 
-'school.optional' = true
+  'school' = String
 
-  major = String
+  'school.optional' = true
 
-'major.optional' = true
+  'major' = String
 
-  career = String
+  'major.optional' = true
 
-'career.optional' = true
+  'career '= String
 
-  workExperience = String
+  'career.optional' = true
+
+  'workExperience' = String
 
   'workExperience.optional' = true
 
-  projectDescription = String
+  'projectDescription' = String
 
-  skills = [String]
+  'skills' = [String]
+
   'skills.optional' = true
-  dateCreated = {
+
+  'dateCreated' = {
     type: String || Date,
     autoValue() {
       return { $push: new Date() }
-    }
+    },
   }
 
-    'dateCreated.optional' = true
-
+  'dateCreated.optional' = true
 }

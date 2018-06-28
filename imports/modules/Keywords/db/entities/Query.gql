@@ -1,0 +1,4 @@
+type Query {
+  keywordList: [Keywords]
+  keyword(_id: ID!, name: String): [Keywords]
+}

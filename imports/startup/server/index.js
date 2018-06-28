@@ -1,18 +1,15 @@
 Meteor.startup(() => {
   const idx = (prop, f) => {
     try {
-      const x = f(prop)
-      console.log(x)
-      return x
-    } catch(e) {
+      return f(prop)
+    } catch (e) {
       return false
     }
   }
 
-Mongo
-  .Collection
-  .get('keywords', function get() {
-    console.log(this)
+  function get() {
     import('./main').then(({ default: def }) => def.forEach(d => idx(this, _ => _.insert(d))))
-  })
+  }
+
+  import('meteor/mongo').then(({ Mongo }) => Mongo.Collection.get('keywords', get))
 })

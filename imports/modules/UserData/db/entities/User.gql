@@ -1,0 +1,26 @@
+interface Member {
+  _id: ID!
+  username: String!
+  password: String!
+  email: String!
+}
+
+type Date {}
+
+type User implements Member @mongo(name: "users") {
+  _id: ID!
+  name: String!
+  email: String!
+  username: String!
+  password: String!
+  age: String
+  birthday: String
+  school: String
+  major: String
+  career: String
+  workExperience: String
+  projectDescription: String
+  skills: [String]
+  dateCreated: Date
+}
+

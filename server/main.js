@@ -6,16 +6,15 @@ import { Keyword as Keywords } from '/imports/db'
 import User from '/imports/modules/UserData/db'
 
 Meteor.methods({
-  'getQuery'({ name }) {
+  getQuery({ name }) {
     switch (name) {
-        case 'career': {
-          return CareerQuery.clone().fetch()
-        }
-        case 'keyword': {
-          console.log(Keywords._collection.find({}).fetch())
-          return Keywords._collection.find({}).fetch()
-        }
-        default: {
+      case 'career': {
+        return CareerQuery.clone().fetch()
+      }
+      case 'keyword': {
+        return Keywords._collection.find({}).fetch()
+      }
+      default: {
         return User.createQuery({
           name: 1,
         }).clone().fetch()
@@ -23,12 +22,11 @@ Meteor.methods({
     }
   },
   db({ collection, data, method }) {
-    return Array.isArray(data) ? data.map(d=>collection[method](d)):collection[method](data)
+    return Array.isArray(data) ? data.map(d => collection[method](d)) : collection[method](data)
   },
-  'post query'({ ...data }) {
+  'post query': function postQuery({ ...data }) {
     User.insert({ data })
 
     return true
   },
-  'log': (data) => console.log(data)
 })
